@@ -2,37 +2,37 @@ version: '3.6'
 
 services:
   debmatic:
-    build:
-      context: .
-      args:
-        VERSION: 0.1
-    image: ptweety/debmatic
-    container_name: debmatic
-    restart: unless-stopped
-    volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    #build:
+    #  context: .
+    #  args:
+    #    VERSION: 0.1
+    image: t20:5000/debmatic:latest #ptweety/debmatic
+#    container_name: debmatic
+#    restart: unless-stopped
+#    volumes:
+#      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     tmpfs:
       - /run
       - /run/lock
       - /tmp
-    devices:
-      - "/dev/raw-uart:/dev/raw-uart:rwm"
-      - "/dev/eq3loop:/dev/eq3loop:rwm"
-      - "/dev/gpiochip0:/dev/gpiochip0:rwm"
+#    devices:
+#      - "/dev/raw-uart:/dev/raw-uart:rwm"
+#      - "/dev/eq3loop:/dev/eq3loop:rwm"
+#      - "/dev/gpiochip0:/dev/gpiochip0:rwm"
 #    sysctls:
 #      - kernel.sched_rt_runtime_us=-1
-    stop_signal: SIGRTMIN+3
-    privileged: true
-    cap_add:
-      - SYS_ADMIN
+#    stop_signal: SIGRTMIN+3
+#    privileged: true
+#    cap_add:
+#      - SYS_ADMIN
 #    environment:
       #USER_ID: 9001
       #GROUP_ID: 9001
     ports:
       - "8081:80"
-      - "1999:1999"
-      - "2000:2000"
-      - "2001:2001"
-      - "2010:2010"
-      - "8181:8181"
-      - "9292:9292"
+#      - "1999:1999"
+#      - "2000:2000"
+#      - "2001:2001"
+#      - "2010:2010"
+#      - "8181:8181"
+#      - "9292:9292"
