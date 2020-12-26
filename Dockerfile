@@ -29,6 +29,7 @@ RUN wget -q -O - https://www.debmatic.de/debmatic/public.key | apt-key add - \
 
 RUN apt-get -y install pivccu-modules-dkms 
 RUN apt-get -y install debmatic-lxc-host 
+RUN apt-get -y install vim 
 
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
     /etc/systemd/system/*.wants/* \
