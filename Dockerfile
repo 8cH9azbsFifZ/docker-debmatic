@@ -28,8 +28,9 @@ RUN wget -q -O - https://www.debmatic.de/debmatic/public.key | apt-key add - \
 #    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get -y install pivccu-modules-dkms 
-RUN apt-get -y install debmatic-lxc-host 
-RUN apt-get -y install vim 
+RUN apt-get -y install detect-radio-module lib32gcc1 lib32stdc++6 libc6-i386 wait-sysfs-notify
+
+RUN apt-get --download-only -y install debmatic 
 
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
     /etc/systemd/system/*.wants/* \
@@ -41,6 +42,10 @@ RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
 
 STOPSIGNAL SIGRTMIN+3
 
+WORKDIR /app
+COPY startup.sh /app/
+
 VOLUME [ "/sys/fs/cgroup", "/run", "/run/lock", "/tmp" ]
 
-CMD ["/lib/systemd/systemd"]
+#CMD ["/lib/systemd/systemd"]
+ENTRYPOINT ["/app/startup.sh"]
