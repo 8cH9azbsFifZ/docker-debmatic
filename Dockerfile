@@ -21,15 +21,11 @@ RUN wget -q -O - https://www.debmatic.de/debmatic/public.key | apt-key add - \
     && apt update \
     && apt install -y debconf ipcalc net-tools rsync build-essential dkms \
     && RUNLEVEL=1 apt install -y lighttpd 
-    #\
-#    && RUNLEVEL=1 apt install -y pivccu-modules-dkms \
-#    && RUNLEVEL=1 apt install -y debmatic \
 #    && apt clean \
 #    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN apt-get -y install pivccu-modules-dkms 
 RUN apt-get -y install detect-radio-module lib32gcc1 lib32stdc++6 libc6-i386 wait-sysfs-notify
-
 RUN apt-get --download-only -y install debmatic 
 
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
@@ -47,5 +43,4 @@ COPY startup.sh /app/
 
 VOLUME [ "/sys/fs/cgroup", "/run", "/run/lock", "/tmp" ]
 
-#CMD ["/lib/systemd/systemd"]
 ENTRYPOINT ["/app/startup.sh"]
