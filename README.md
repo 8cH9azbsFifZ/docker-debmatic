@@ -19,6 +19,9 @@ open http://localhost:8081
 [69121.231229] usb 2-9: Manufacturer: Alexander Reinert
 [69121.231231] usb 2-9: SerialNumber: A94J21B5
 
+```sudo lsusb```
+Bus 002 Device 004: ID 0403:6f70 Future Technology Devices International, Ltd HB-RF-USB
+
 
 # References:
 - https://homematic-forum.de/forum/viewtopic.php?t=53514

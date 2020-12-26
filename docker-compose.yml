@@ -1,3 +1,7 @@
+
+# Check for info:
+# docker exec -it <id> /usr/sbin/debmatic-info 
+
 version: '3.6'
 
 services:
@@ -23,7 +27,7 @@ services:
 #      - kernel.sched_rt_runtime_us=-1
     stop_signal: SIGRTMIN+3
     privileged: true
-    cap_add:
+    cap_add: # for more caps
       - SYS_ADMIN
 #    environment:
       #USER_ID: 9001
