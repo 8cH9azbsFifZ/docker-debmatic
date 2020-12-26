@@ -5,7 +5,6 @@
 # Status:
 make build
 docker-compose up
-docker exec -it <ID> apt-get install debmatic
 open http://localhost:8081
 
 
