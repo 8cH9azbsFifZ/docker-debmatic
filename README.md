@@ -3,5 +3,9 @@
 - https://github.com/alexreinert/debmatic
 
 # Status:
-- WIP (https://github.com/alexreinert/debmatic/blob/master/create_debmatic_lxc_host.sh) -> Build works
+make build
+docker-compose up
+docker exec -it <ID> apt-get install debmatic
+open http://localhost:8081
+
 

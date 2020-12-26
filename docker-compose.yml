@@ -9,8 +9,8 @@ services:
     image: t20:5000/debmatic:latest #ptweety/debmatic
 #    container_name: debmatic
 #    restart: unless-stopped
-#    volumes:
-#      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    volumes:
+      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
     tmpfs:
       - /run
       - /run/lock
@@ -21,10 +21,10 @@ services:
 #      - "/dev/gpiochip0:/dev/gpiochip0:rwm"
 #    sysctls:
 #      - kernel.sched_rt_runtime_us=-1
-#    stop_signal: SIGRTMIN+3
-#    privileged: true
-#    cap_add:
-#      - SYS_ADMIN
+    stop_signal: SIGRTMIN+3
+    privileged: true
+    cap_add:
+      - SYS_ADMIN
 #    environment:
       #USER_ID: 9001
       #GROUP_ID: 9001
