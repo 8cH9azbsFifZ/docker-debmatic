@@ -5,3 +5,7 @@ build:
 
 run:
 	docker run --rm -it debmatic:latest bash
+
+push:
+	docker push t20:5000/debmatic:latest
+	docker push t20:5000/debmatic:${VER}
