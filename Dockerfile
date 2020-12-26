@@ -27,6 +27,7 @@ RUN wget -q -O - https://www.debmatic.de/debmatic/public.key | apt-key add - \
 RUN apt-get -y install pivccu-modules-dkms 
 RUN apt-get -y install detect-radio-module lib32gcc1 lib32stdc++6 libc6-i386 wait-sysfs-notify
 RUN apt-get --download-only -y install debmatic 
+RUN apt-get -y install libusb-1.0-0
 
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
     /etc/systemd/system/*.wants/* \
